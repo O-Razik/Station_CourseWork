@@ -9,7 +9,8 @@
   4) Determine which trains depart from the specified station in the specified time period.
   5) Determine which trains arrive at the given station in the specified time period.
   6) Group records in which the final and intermediate stations coincide. // Still working on it
-   For the class, create:
+   
+  For the class, create:
     1) Default constructor;
     2) The constructor with parameters;
     3) copy constructor;
