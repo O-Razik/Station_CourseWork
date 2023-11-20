@@ -11,7 +11,7 @@
   3) Determine the average speed of the trains and sort by this parameter.
   4) Determine which trains depart from the specified station in the specified time period.
   5) Determine which trains arrive at the given station in the specified time period.
-  6) Group records in which the final and intermediate stations coincide. // Still working on it
+  6) Group records in which the final and intermediate stations coincide.
    
   For the class, create:
     1) Default constructor;
