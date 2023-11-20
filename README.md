@@ -1,5 +1,8 @@
 # Station_CW
- This is my second year university coursework. There is an app for creating station timetables.
+ This is my second year university coursework.
+ It is an app for creating station timetables.
+ For this task I used Qt.
+ 
  My Course Work variant:
  # 13. Station
   No. Train | Initial station | End station | Intermediate stations | Time of departure | Time of arrival | Distance
