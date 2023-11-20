@@ -1,0 +1,16 @@
+AllStaions
+0259 | Ivano-Frankivsk [14:46] Khodorov [15:58] Lviv [17:07] Ternopil [19:55] Khmelnytskyi [03:36] Vinnitsa [00:27] Koyatyn-1 [01:34] Kyiv [03:36] Darnytsia(Kyiv) [04:14] Nizhin [05:28] Bakhmach [06:56] Konotop [07:20] Putivl [08:03] Divination [08:35] Bilopilja [09:53] Sumy [09:53] | 895
+0090 | Przemysl [13:45] Lviv [18:25] Krasne [19:35] Ternopil [21:03] Volochysk [22:23] Khmelnytskyi [23:15] Vinnitsa [01:31] Kalinovka-1 [02:02] Kozyatyn-1 [02:45] Fastiv-1 [04:17] Kyiv [05:24] | 651
+0050 | Truskavets [13:45] Drohobych [18:25] Lviv [19:35] Kyiv [05:31] | 624
+0347 | Kyiv [08:00] Bila_Tserkva [09:15] Vinnytsia [11:02] Khmelnytskyi [12:50] Ternopil [15:28] Lviv [17:37] Drohobych [18:42] Truskavets [19:52] | 543
+0712 | Lutsk [10:20] Rivne [11:40] Zdolbuniv [13:02] Ternopil [15:45] Khmelnytskyi [17:33] Vinnytsia [19:21] Fastiv-2 [22:37] Kyiv [23:45] | 415
+0625 | Zaporizhia [09:15] Dnipro [11:08] Kryvyi_Rih [13:55] Kremenchuk [17:10] Poltava [19:22] Romny [21:47] Sumy [23:58] | 622
+0599 | Dnipro [11:20] Pavlohrad [12:40] Synelnykove [14:02] Zaporizhia [16:15] Berdiansk [18:45] | 328
+0174 | Lviv [07:30] Ivano-Frankivsk [08:46] Kolomyia [10:38] Chernivtsi [12:30] Vyzhnytsia [15:20] | 318
+0378 | Kyiv [06:45] Myronivka [08:30] Uman [10:15] Vinnytsia [12:42] Vapnyarka [14:28] Odesa [17:05] | 496
+0650 | Luhansk [09:45] Alchevsk [11:22] Perevalsk [13:10] Rovenky [15:05] Sverdlovsk [16:48] | 291
+0489 | Kharkiv [09:00] Lozova [10:17] Kupiansk [11:40] Izyum [13:22] | 222
+0182 | Lviv [06:30] Stryi [08:02] Ivano-Frankivsk [09:15] Kolomyia [11:07] | 177
+0622 | Lviv [10:00] Ternopil [12:08] Khmelnytskyi [14:30] Vinnytsia [16:47] Kyiv [19:09] | 482
+0123 | Uzhhorod [12:30] Mukachevo [13:10] Lviv [16:45] Ternopil [18:55] Khmelnytskyi [20:35] Vinnytsia [22:22] Kozyatyn-1 [23:05] Fastiv-1 [00:37] Kyiv [01:44] | 731
+0298 | Ivano-Frankivsk [15:30] Lviv [17:45] Ternopil [19:55] Khmelnytskyi [21:35] Vinnytsia [23:22] Kozyatyn-1 [00:05] Fastiv-1 [01:37] Kyiv [02:44] | 674

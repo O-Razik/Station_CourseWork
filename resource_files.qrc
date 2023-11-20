@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Docs/add_station.png</file>
+        <file>Docs/add_train.png</file>
+        <file>Docs/refresh.png</file>
+        <file>Docs/save_all_manyfiles.png</file>
+        <file>Docs/save_all_onefile.png</file>
+        <file>Docs/save_current.png</file>
+        <file>Docs/save_first.png</file>
+        <file>Docs/open_multiple.png</file>
+        <file>Docs/open_one.png</file>
+        <file>Docs/next_station.png</file>
+        <file>Docs/prev_station.png</file>
+        <file>Docs/sort_distance.png</file>
+        <file>Docs/sort_speed.png</file>
+        <file>Docs/exit.png</file>
+        <file>Docs/first_station.png</file>
+    </qresource>
+</RCC>

@@ -1,0 +1,1004 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>823</width>
+    <height>490</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Station Table</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_3">
+    <item row="0" column="0">
+     <layout class="QGridLayout" name="gridLayout_2">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetNoConstraint</enum>
+      </property>
+      <item row="0" column="0">
+       <widget class="QFrame" name="frame_1">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>91</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>91</height>
+         </size>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <item row="0" column="0">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
+           <item>
+            <layout class="QVBoxLayout" name="Station_panel">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetNoConstraint</enum>
+             </property>
+             <item>
+              <widget class="QLabel" name="label_station">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="text">
+                <string>Station:</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QComboBox" name="station_choose">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="palette">
+                <palette>
+                 <active>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>49</red>
+                     <green>49</green>
+                     <blue>49</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </active>
+                 <inactive>
+                  <colorrole role="Text">
+                   <brush brushstyle="SolidPattern">
+                    <color alpha="255">
+                     <red>49</red>
+                     <green>49</green>
+                     <blue>49</blue>
+                    </color>
+                   </brush>
+                  </colorrole>
+                 </inactive>
+                 <disabled/>
+                </palette>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Cascadia Code SemiBold</family>
+                 <pointsize>18</pointsize>
+                 <bold>true</bold>
+                </font>
+               </property>
+               <property name="iconSize">
+                <size>
+                 <width>16</width>
+                 <height>16</height>
+                </size>
+               </property>
+               <property name="placeholderText">
+                <string>None</string>
+               </property>
+               <property name="duplicatesEnabled">
+                <bool>false</bool>
+               </property>
+               <property name="frame">
+                <bool>true</bool>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line_2">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_3">
+             <item>
+              <layout class="QFormLayout" name="formLayout">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_trains">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>Trains:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_train_number">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>__</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+             <item>
+              <layout class="QFormLayout" name="formLayout_2">
+               <item row="0" column="0">
+                <widget class="QLabel" name="label_train_avrs">
+                 <property name="text">
+                  <string>Average train speed:</string>
+                 </property>
+                </widget>
+               </item>
+               <item row="0" column="1">
+                <widget class="QLabel" name="label_aver_speed">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="text">
+                  <string>__ km/h</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="Line" name="line_station_time">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_3">
+             <item>
+              <widget class="QTimeEdit" name="train_time">
+               <property name="sizePolicy">
+                <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                 <horstretch>0</horstretch>
+                 <verstretch>0</verstretch>
+                </sizepolicy>
+               </property>
+               <property name="minimumSize">
+                <size>
+                 <width>125</width>
+                 <height>0</height>
+                </size>
+               </property>
+               <property name="font">
+                <font>
+                 <family>Consolas</family>
+                 <pointsize>26</pointsize>
+                </font>
+               </property>
+               <property name="wrapping">
+                <bool>false</bool>
+               </property>
+               <property name="frame">
+                <bool>true</bool>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="buttonSymbols">
+                <enum>QAbstractSpinBox::NoButtons</enum>
+               </property>
+               <property name="displayFormat">
+                <string>HH:mm</string>
+               </property>
+               <property name="time">
+                <time>
+                 <hour>0</hour>
+                 <minute>0</minute>
+                 <second>0</second>
+                </time>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="sizeConstraint">
+                <enum>QLayout::SetNoConstraint</enum>
+               </property>
+               <item>
+                <widget class="QSlider" name="pm_timeslider">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>100</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="maximum">
+                  <number>6</number>
+                 </property>
+                 <property name="pageStep">
+                  <number>1</number>
+                 </property>
+                 <property name="orientation">
+                  <enum>Qt::Horizontal</enum>
+                 </property>
+                 <property name="tickPosition">
+                  <enum>QSlider::TicksBelow</enum>
+                 </property>
+                 <property name="tickInterval">
+                  <number>1</number>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <property name="sizeConstraint">
+                  <enum>QLayout::SetDefaultConstraint</enum>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="pm_time">
+                   <property name="maximumSize">
+                    <size>
+                     <width>40</width>
+                     <height>16777215</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>±0  h</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <layout class="QHBoxLayout" name="horizontalLayout">
+                   <item>
+                    <widget class="QPushButton" name="arrival_cheek">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Arrival time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="whatsThis">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Arrival time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="text">
+                      <string>A</string>
+                     </property>
+                    </widget>
+                   </item>
+                   <item>
+                    <widget class="QPushButton" name="departure_cheek">
+                     <property name="sizePolicy">
+                      <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                       <horstretch>0</horstretch>
+                       <verstretch>0</verstretch>
+                      </sizepolicy>
+                     </property>
+                     <property name="maximumSize">
+                      <size>
+                       <width>20</width>
+                       <height>20</height>
+                      </size>
+                     </property>
+                     <property name="toolTip">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Departure time&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="whatsThis">
+                      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                     </property>
+                     <property name="text">
+                      <string>D</string>
+                     </property>
+                    </widget>
+                   </item>
+                  </layout>
+                 </item>
+                </layout>
+               </item>
+              </layout>
+             </item>
+            </layout>
+           </item>
+           <item>
+            <widget class="Line" name="line">
+             <property name="orientation">
+              <enum>Qt::Vertical</enum>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <layout class="QVBoxLayout" name="verticalLayout_2">
+             <property name="sizeConstraint">
+              <enum>QLayout::SetNoConstraint</enum>
+             </property>
+             <item>
+              <widget class="QPushButton" name="sort_speed">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Sort by speed</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="sort_distance">
+               <property name="maximumSize">
+                <size>
+                 <width>100</width>
+                 <height>16777215</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Sort by distance</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="1" column="0">
+       <widget class="QTableWidget" name="train_table">
+        <property name="frameShape">
+         <enum>QFrame::Box</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContentsOnFirstShow</enum>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::NoEditTriggers</set>
+        </property>
+        <property name="verticalScrollMode">
+         <enum>QAbstractItemView::ScrollPerPixel</enum>
+        </property>
+        <property name="horizontalScrollMode">
+         <enum>QAbstractItemView::ScrollPerPixel</enum>
+        </property>
+        <attribute name="horizontalHeaderVisible">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderCascadingSectionResizes">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="horizontalHeaderHighlightSections">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>№</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>From</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>To</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Path</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Arrival time</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Departure time</string>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Distance travelled</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>823</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>File</string>
+    </property>
+    <widget class="QMenu" name="menuOpen">
+     <property name="title">
+      <string>Open</string>
+     </property>
+     <addaction name="action_One_Station"/>
+     <addaction name="action_Multiple_Stations"/>
+    </widget>
+    <widget class="QMenu" name="menuSave">
+     <property name="title">
+      <string>Save</string>
+     </property>
+     <widget class="QMenu" name="menuSave_All">
+      <property name="title">
+       <string>Save All</string>
+      </property>
+      <addaction name="actionSave_One_File"/>
+      <addaction name="actionSave_Multiple_Files"/>
+     </widget>
+     <addaction name="actionSave_First"/>
+     <addaction name="actionSave_Current"/>
+     <addaction name="menuSave_All"/>
+    </widget>
+    <addaction name="menuOpen"/>
+    <addaction name="menuSave"/>
+    <addaction name="separator"/>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuStation">
+    <property name="title">
+     <string>Stations</string>
+    </property>
+    <widget class="QMenu" name="menuSort">
+     <property name="title">
+      <string>Sort by ...</string>
+     </property>
+     <addaction name="separator"/>
+     <addaction name="actionBy_Speed"/>
+     <addaction name="actionDistance"/>
+    </widget>
+    <widget class="QMenu" name="menuTime">
+     <property name="title">
+      <string>Time</string>
+     </property>
+     <widget class="QMenu" name="menuClock">
+      <property name="title">
+       <string>Clock</string>
+      </property>
+      <addaction name="action_p1_hour"/>
+      <addaction name="action_p30_minutes"/>
+      <addaction name="action_m1_hour"/>
+      <addaction name="action_m30_minutes"/>
+     </widget>
+     <widget class="QMenu" name="menuArrival">
+      <property name="title">
+       <string>Arrival</string>
+      </property>
+      <addaction name="actionThis_Time_arr"/>
+      <addaction name="separator"/>
+      <addaction name="action_1_h_arr"/>
+      <addaction name="action_2_h_arr"/>
+      <addaction name="action_3_h_arr"/>
+      <addaction name="action_4_h_arr"/>
+      <addaction name="action_5_h_arr"/>
+      <addaction name="action_6_h_arr"/>
+     </widget>
+     <widget class="QMenu" name="menuDeparture">
+      <property name="title">
+       <string>Departure</string>
+      </property>
+      <addaction name="actionThis_Time_dep"/>
+      <addaction name="separator"/>
+      <addaction name="action_1_h_dep"/>
+      <addaction name="action_2_h_dep"/>
+      <addaction name="action_3_h_dep"/>
+      <addaction name="action_4_h_dep"/>
+      <addaction name="action_5_h_dep"/>
+      <addaction name="action_6_h_dep"/>
+     </widget>
+     <addaction name="menuClock"/>
+     <addaction name="separator"/>
+     <addaction name="menuArrival"/>
+     <addaction name="menuDeparture"/>
+    </widget>
+    <addaction name="actionCreate"/>
+    <addaction name="actionAdd_Train"/>
+    <addaction name="separator"/>
+    <addaction name="actionFirst_Station"/>
+    <addaction name="actionPrev_Station"/>
+    <addaction name="actionNex_Station"/>
+    <addaction name="separator"/>
+    <addaction name="menuSort"/>
+    <addaction name="separator"/>
+    <addaction name="menuTime"/>
+    <addaction name="actionRefresh_Table"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>Help</string>
+    </property>
+    <addaction name="actionDocumentation"/>
+    <addaction name="actionCourseWork"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuStation"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="font">
+    <font>
+     <pointsize>16</pointsize>
+    </font>
+   </property>
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="orientation">
+    <enum>Qt::Horizontal</enum>
+   </property>
+   <property name="iconSize">
+    <size>
+     <width>32</width>
+     <height>32</height>
+    </size>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_One_Station"/>
+   <addaction name="action_Multiple_Stations"/>
+   <addaction name="separator"/>
+   <addaction name="actionCreate"/>
+   <addaction name="actionAdd_Train"/>
+   <addaction name="separator"/>
+   <addaction name="actionFirst_Station"/>
+   <addaction name="actionPrev_Station"/>
+   <addaction name="actionNex_Station"/>
+   <addaction name="separator"/>
+   <addaction name="actionSave_First"/>
+   <addaction name="actionSave_Current"/>
+   <addaction name="actionSave_One_File"/>
+   <addaction name="actionSave_Multiple_Files"/>
+   <addaction name="separator"/>
+   <addaction name="actionBy_Speed"/>
+   <addaction name="actionDistance"/>
+   <addaction name="separator"/>
+   <addaction name="actionRefresh_Table"/>
+  </widget>
+  <action name="action_One_Station">
+   <property name="icon">
+    <iconset>
+     <selectedon>:/Docs/open_one.png</selectedon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>One Station</string>
+   </property>
+   <property name="toolTip">
+    <string>One station is created</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+   <property name="shortcutContext">
+    <enum>Qt::WindowShortcut</enum>
+   </property>
+  </action>
+  <action name="action_Multiple_Stations">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/open_multiple.png</normaloff>:/Docs/open_multiple.png</iconset>
+   </property>
+   <property name="text">
+    <string>Multiple Stations</string>
+   </property>
+   <property name="toolTip">
+    <string>Multiple stations are created</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionSave_First">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/save_first.png</normaloff>:/Docs/save_first.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save First</string>
+   </property>
+   <property name="toolTip">
+    <string>Save first station into file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
+   </property>
+  </action>
+  <action name="actionSave_Current">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/save_current.png</normaloff>:/Docs/save_current.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Current</string>
+   </property>
+   <property name="toolTip">
+    <string>Save Current into file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
+  <action name="actionSave_One_File">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/save_all_onefile.png</normaloff>:/Docs/save_all_onefile.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save One File</string>
+   </property>
+   <property name="toolTip">
+    <string>Save all stations into just one File</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_Multiple_Files">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/save_all_manyfiles.png</normaloff>:/Docs/save_all_manyfiles.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save Multiple Files</string>
+   </property>
+   <property name="toolTip">
+    <string>Save all station across multiple files</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/exit.png</normaloff>:/Docs/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Exit</string>
+   </property>
+   <property name="toolTip">
+    <string>Exit application</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+E</string>
+   </property>
+  </action>
+  <action name="actionFirst_Station">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/first_station.png</normaloff>:/Docs/first_station.png</iconset>
+   </property>
+   <property name="text">
+    <string>First Station</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+0</string>
+   </property>
+  </action>
+  <action name="actionRefresh_Table">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/refresh.png</normaloff>:/Docs/refresh.png</iconset>
+   </property>
+   <property name="text">
+    <string>Refresh</string>
+   </property>
+   <property name="toolTip">
+    <string>Refresh table</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionPrev_Station">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/prev_station.png</normaloff>:/Docs/prev_station.png</iconset>
+   </property>
+   <property name="text">
+    <string>Prev Station</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Left</string>
+   </property>
+  </action>
+  <action name="actionNex_Station">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/next_station.png</normaloff>:/Docs/next_station.png</iconset>
+   </property>
+   <property name="text">
+    <string>Next Station</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Right</string>
+   </property>
+  </action>
+  <action name="actionBy_Speed">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/sort_speed.png</normaloff>:/Docs/sort_speed.png</iconset>
+   </property>
+   <property name="text">
+    <string>Speed</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+S</string>
+   </property>
+  </action>
+  <action name="actionDistance">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/sort_distance.png</normaloff>:/Docs/sort_distance.png</iconset>
+   </property>
+   <property name="text">
+    <string>Distance</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+D</string>
+   </property>
+  </action>
+  <action name="action_p1_hour">
+   <property name="text">
+    <string>+ 1 hour</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl++</string>
+   </property>
+  </action>
+  <action name="action_p30_minutes">
+   <property name="text">
+    <string>+ 30 minutes</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Num++</string>
+   </property>
+  </action>
+  <action name="action_m1_hour">
+   <property name="text">
+    <string>- 1 hour</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+-</string>
+   </property>
+  </action>
+  <action name="action_m30_minutes">
+   <property name="text">
+    <string>- 30 minutes</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+Num+-</string>
+   </property>
+  </action>
+  <action name="actionDocumentation">
+   <property name="text">
+    <string>Documentation</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+  </action>
+  <action name="actionCourseWork">
+   <property name="text">
+    <string>CourseWork</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+C</string>
+   </property>
+  </action>
+  <action name="actionThis_Time_arr">
+   <property name="text">
+    <string>This Time</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+A</string>
+   </property>
+  </action>
+  <action name="action_1_h_arr">
+   <property name="text">
+    <string>± 1 h</string>
+   </property>
+  </action>
+  <action name="action_2_h_arr">
+   <property name="text">
+    <string>± 2 h</string>
+   </property>
+  </action>
+  <action name="action_3_h_arr">
+   <property name="text">
+    <string>± 3 h</string>
+   </property>
+  </action>
+  <action name="action_4_h_arr">
+   <property name="text">
+    <string>± 4 h</string>
+   </property>
+  </action>
+  <action name="action_5_h_arr">
+   <property name="text">
+    <string>± 5 h</string>
+   </property>
+  </action>
+  <action name="action_6_h_arr">
+   <property name="text">
+    <string>± 6 h</string>
+   </property>
+  </action>
+  <action name="actionThis_Time_dep">
+   <property name="text">
+    <string>This Time</string>
+   </property>
+   <property name="shortcut">
+    <string>Alt+D</string>
+   </property>
+  </action>
+  <action name="action_1_h_dep">
+   <property name="text">
+    <string>± 1 h</string>
+   </property>
+  </action>
+  <action name="action_2_h_dep">
+   <property name="text">
+    <string>± 2 h</string>
+   </property>
+  </action>
+  <action name="action_3_h_dep">
+   <property name="text">
+    <string>± 3 h</string>
+   </property>
+  </action>
+  <action name="action_4_h_dep">
+   <property name="text">
+    <string>± 4 h</string>
+   </property>
+  </action>
+  <action name="action_5_h_dep">
+   <property name="text">
+    <string>± 5 h</string>
+   </property>
+  </action>
+  <action name="action_6_h_dep">
+   <property name="text">
+    <string>± 6 h</string>
+   </property>
+  </action>
+  <action name="actionCreate">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/add_station.png</normaloff>:/Docs/add_station.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Station</string>
+   </property>
+   <property name="toolTip">
+    <string>Create or add new station</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionAdd_Train">
+   <property name="icon">
+    <iconset resource="resource_files.qrc">
+     <normaloff>:/Docs/add_train.png</normaloff>:/Docs/add_train.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add Train</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+T</string>
+   </property>
+  </action>
+ </widget>
+ <resources>
+  <include location="resource_files.qrc"/>
+ </resources>
+ <connections/>
+</ui>
