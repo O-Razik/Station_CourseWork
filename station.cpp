@@ -127,6 +127,58 @@ std::vector<std::pair<Train*, std::pair<QTime, QTime>>>
     return trains_period;
 }
 
+std::vector<std::pair<Train*, std::pair<QTime, QTime>>>
+Station::to_same_st_period(QString station_name)
+{
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>> trains_period;
+    for (int i = 0; i < trains.size(); ++i) {
+        if(station_name == trains[i].first->get_stations().back().first){
+            std::pair<Train*, std::pair<QTime, QTime>> one_train;
+            one_train.second = trains[i].second;
+            one_train.first = new Train(*trains[i].first);
+            trains_period.push_back(one_train);
+        }
+    }
+
+    return trains_period;
+}
+
+std::vector<std::pair<Train*, std::pair<QTime, QTime>>>
+Station::from_same_st_period(QString station_name)
+{
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>> trains_period;
+    for (int i = 0; i < trains.size(); ++i) {
+        if(station_name == trains[i].first->get_stations()[0].first){
+            std::pair<Train*, std::pair<QTime, QTime>> one_train;
+            one_train.second = trains[i].second;
+            one_train.first = new Train(*trains[i].first);
+            trains_period.push_back(one_train);
+        }
+    }
+
+    return trains_period;
+}
+
+std::vector<std::pair<Train*, std::pair<QTime, QTime>>>
+Station::stops_same_st_period(QString station_name)
+{
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>> trains_period;
+    for (int i = 0; i < trains.size(); ++i) {
+        auto t = trains[i].first->get_stations();
+        for (int j = 0; j < t.size(); ++j) {
+            if(station_name == t[j].first){
+                std::pair<Train*, std::pair<QTime, QTime>> one_train;
+                one_train.second = trains[i].second;
+                one_train.first = new Train(*trains[i].first);
+                trains_period.push_back(one_train);
+                break;
+            }
+        }
+    }
+
+    return trains_period;
+}
+
 //-----------------------------------------------------------
 
 std::ifstream& operator>>(std::ifstream& file, Station& st) {

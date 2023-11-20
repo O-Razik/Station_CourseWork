@@ -18,8 +18,6 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
-    void update();
-
     bool read_table_from_file(bool is_multp);
 
     void save_table_to_file(short mode);
@@ -40,8 +38,11 @@ public:
 
     void update_table(Station* station);
 
-    void time_check(std::vector<std::pair<Train *, std::pair<QTime, QTime> > >
+    void time_check(std::vector<std::pair<Train *, std::pair<QTime, QTime>>>
         (Station::*time_period)(QTime, QTime));
+
+    void stop_check(std::vector<std::pair<Train*, std::pair<QTime, QTime>>>
+        (Station::*station_same)(QString), QString stop_name);
 
     void sort_by(void(Station::*sort)());
 
@@ -148,9 +149,24 @@ private slots:
 
     void on_actionAdd_Train_triggered();
 
+    void on_from_button_clicked();
+
+    void on_to_button_clicked();
+
+    void on_path_stops_button_clicked();
+
+    void on_refresh_button_clicked();
+
+    void on_actionFrom_triggered();
+
+    void on_actionTo_triggered();
+
+    void on_actionPath_triggered();
+
 private:
     std::vector<Station*> table;
-
     Ui::MainWindow *ui;
+
+    Station* sortgrouped;
 };
 #endif // MAINWINDOW_H

@@ -10,7 +10,7 @@ AllStations
 0235 | Chernihiv [10:00] Nizhyn [11:14] Pryluky [12:28] Kyiv [15:05] Fastiv-2 [17:21] Vinnytsia [20:37] Khmelnytskyi [22:25] Ternopil [01:03] | 594
 0599 | Dnipro [11:20] Pavlohrad [12:40] Synelnykove [14:02] Zaporizhia [16:15] Berdiansk [18:45] | 328
 0174 | Lviv [07:30] Ivano-Frankivsk [08:46] Kolomyia [10:38] Chernivtsi [12:30] Vyzhnytsia [15:20] | 318
-0378 | Kyiv [06:45] Myronivka [08:30] Uman [10:15] Vinnytsia [12:42] Vapnyarka [14:28] Odesa [17:05] | 496
+0378 | Kyiv [06:45] Myronivka [08:30] Uman [10:15] Vinnytsia [12:42] Vapnyarka [14:28] Odessa [17:05] | 496
 0650 | Luhansk [09:45] Alchevsk [11:22] Perevalsk [13:10] Rovenky [15:05] Sverdlovsk [16:48] | 291
 0489 | Kharkiv [09:00] Lozova [10:17] Kupiansk [11:40] Izyum [13:22] | 222
 0182 | Lviv [06:30] Stryi [08:02] Ivano-Frankivsk [09:15] Kolomyia [11:07] | 177

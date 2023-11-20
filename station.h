@@ -30,10 +30,18 @@ public:
     int trains_number(); // 2) +
     double aver_train_speed(); // 3a) +
     void sort_speed_trains(); // 3b) +
+
     std::vector<std::pair<Train*, std::pair<QTime, QTime>>> depart_trains_period
         (QTime begin_t, QTime end_t); // 4) +
     std::vector<std::pair<Train*, std::pair<QTime, QTime>>> arrive_trains_period
         (QTime begin_t, QTime end_t); // 5) +
+
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>> to_same_st_period
+        (QString station_name); // 6a) +
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>> from_same_st_period
+        (QString station_name); // 6b) +
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>> stops_same_st_period
+        (QString station_name); // 6c) +
 
     friend std::ifstream& operator>>(std::ifstream& file, Station& st); // +
     friend std::ofstream& operator<<(std::ofstream& file, const Station& st); // +

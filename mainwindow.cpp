@@ -10,15 +10,14 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , sortgrouped(nullptr)
 {
     ui->setupUi(this);
 
-    QTimer *updateTimer = new QTimer(this);
-    connect(updateTimer, &QTimer::timeout, this, &MainWindow::update);
-    updateTimer->start(800);
-
     connect(ui->train_table, &QTableWidget::customContextMenuRequested, this, &MainWindow::context_menu_table);
     ui->train_table->setContextMenuPolicy(Qt::CustomContextMenu);
+
+    ui->train_table->setColumnWidth(3, 400);
 }
 
 
@@ -29,22 +28,6 @@ MainWindow::~MainWindow()
     }
     table.clear();
     delete ui;
-}
-
-
-void MainWindow::update()
-{
-    int index = ui->station_choose->currentIndex();
-    int size = ui->station_choose->count();
-    if (!table.empty()) {
-        emit ui->actionFirst_Station->enabledChanged(true);
-        emit ui->actionPrev_Station->enabledChanged((index - 1) >= 0);
-        emit ui->actionNex_Station->enabledChanged((index + 1) < size);
-    } else {
-        emit ui->actionFirst_Station->enabledChanged(false);
-        emit ui->actionPrev_Station->enabledChanged((index - 1) >= 0);
-        emit ui->actionNex_Station->enabledChanged((index + 1) < size);
-    }
 }
 
 
@@ -141,7 +124,10 @@ void MainWindow::save_table_to_file(short mode){
                 // Handle the case where the file could not be opened.
                 return;
             }
-            else file << *table[index];
+            else {
+                if(sortgrouped == nullptr) file << *table[index];
+                else file << *sortgrouped;
+            }
             file.close();
         } else if (mode == 3) {
             Station* one = all_stations();
@@ -263,13 +249,19 @@ void MainWindow::add_existing_station(QString name) {
 
 void  MainWindow::create_table(Station* one){
     int count = ui->station_choose->count();
+    int count_2 = ui->stop_choose->count();
 
     if(count != 0) {
         ui->station_choose->clear();
     }
+    if(count_2 != 0) {
+        ui->stop_choose->clear();
+    }
 
     for (int i = 0; i < table.size(); ++i) {
         ui->station_choose->addItem(QString::fromStdString(table[i]->get_name()));
+        if(QString::fromStdString(table[i]->get_name()) != "AllStations")
+            ui->stop_choose->addItem(QString::fromStdString(table[i]->get_name()));
     }
 
     int index = find_station_by_name(QString::fromStdString(one->get_name()));
@@ -467,6 +459,7 @@ void MainWindow::on_sort_distance_clicked()
     sort_by(&Station::sort_dict_trains);
 }
 
+
 void MainWindow::sort_by(void (Station::*sort)())
 {
     if(!table.empty()){
@@ -495,9 +488,38 @@ void MainWindow::time_check(
             end = current_time;
         }
 
-        Station* arrival_only = new Station("arrival_only", (table[index]->*time_period)(begin, end));
-        update_table(arrival_only);
-        delete arrival_only;
+        Station* _only;
+        if(sortgrouped != nullptr){
+            _only = new Station(sortgrouped->get_name(), (sortgrouped->*time_period)(begin, end));
+            delete sortgrouped;
+        }
+        else
+        {
+            _only = new Station(sortgrouped->get_name(), (sortgrouped->*time_period)(begin, end));
+        }
+        sortgrouped = _only;
+        update_table(sortgrouped);
+    }
+}
+
+
+void MainWindow::stop_check(
+    std::vector<std::pair<Train*, std::pair<QTime, QTime>>>
+    (Station::*station_same)(QString), QString stop_name
+    ) {
+    if (!table.empty()) {
+        int index = ui->station_choose->currentIndex();
+        Station* _only;
+        if(sortgrouped != nullptr){
+            _only = new Station(table[index]->get_name(), (sortgrouped->*station_same)(stop_name));
+            delete sortgrouped;
+        }
+        else
+        {
+            _only = new Station(table[index]->get_name(), (table[index]->*station_same)(stop_name));
+        }
+        sortgrouped = _only;
+        update_table(sortgrouped);
     }
 }
 
@@ -511,6 +533,24 @@ void MainWindow::on_arrival_cheek_clicked()
 void MainWindow::on_departure_cheek_clicked()
 {
     time_check(&Station::depart_trains_period);
+}
+
+
+void MainWindow::on_from_button_clicked()
+{
+    stop_check(&Station::from_same_st_period, ui->stop_choose->currentText());
+}
+
+
+void MainWindow::on_to_button_clicked()
+{
+    stop_check(&Station::to_same_st_period, ui->stop_choose->currentText());
+}
+
+
+void MainWindow::on_path_stops_button_clicked()
+{
+    stop_check(&Station::stops_same_st_period, ui->stop_choose->currentText());
 }
 
 
@@ -1157,7 +1197,11 @@ void MainWindow::on_actionSave_Multiple_Files_triggered()
 
 void MainWindow::on_actionFirst_Station_triggered()
 {
-    if(!table.empty()) ui->station_choose->setCurrentIndex(0);
+    if(!table.empty()) {
+        ui->station_choose->setCurrentIndex(0);
+        if(sortgrouped != nullptr)
+            delete sortgrouped;
+    }
 }
 
 
@@ -1166,6 +1210,8 @@ void MainWindow::on_actionPrev_Station_triggered()
     if(!table.empty()){
         int index = ui->station_choose->currentIndex() - 1;
         if(index >= 0) ui->station_choose->setCurrentIndex(index);
+        if(sortgrouped != nullptr)
+            delete sortgrouped;
     }
 }
 
@@ -1175,6 +1221,8 @@ void MainWindow::on_actionNex_Station_triggered()
     if(!table.empty()){
         int index = ui->station_choose->currentIndex() + 1;
         if(index < table.size()) ui->station_choose->setCurrentIndex(index);
+        if(sortgrouped != nullptr)
+            delete sortgrouped;
     }
 }
 
@@ -1219,6 +1267,8 @@ void MainWindow::on_actionRefresh_Table_triggered()
 {
     int index = ui->station_choose->currentIndex();
     if(!table.empty()) make_table(index);
+    delete sortgrouped;
+    sortgrouped = nullptr;
 }
 
 
@@ -1335,6 +1385,67 @@ void MainWindow::on_actionAdd_Train_triggered()
         add_train* window = new add_train(table, ui->station_choose->currentIndex(),*this);
         enable_window(false);
         window->show();
+    }
+}
+
+
+void MainWindow::on_refresh_button_clicked()
+{
+    int index = ui->station_choose->currentIndex();
+    if(!table.empty()) make_table(index);
+    delete sortgrouped;
+    sortgrouped = nullptr;
+}
+
+
+void MainWindow::on_actionFrom_triggered()
+{
+    if(ui->stop_choose->count() > 0){
+        QMenu from_menu(this);
+        for (int i = 0; i < ui->stop_choose->count(); ++i) {
+            QAction* action = from_menu.addAction(ui->stop_choose->itemText(i));
+            connect(action, &QAction::triggered, this, [this, i]() {
+                stop_check(&Station::from_same_st_period, ui->stop_choose->itemText(i));
+            });
+
+        }
+        ui->actionFrom->setMenu(&from_menu);
+        from_menu.exec(mapToGlobal(pos()));
+
+    }
+}
+
+
+void MainWindow::on_actionTo_triggered()
+{
+    if(ui->stop_choose->count() > 0){
+        QMenu to_menu(this);
+        for (int i = 0; i < ui->stop_choose->count(); ++i) {
+            QAction* action = to_menu.addAction(ui->stop_choose->itemText(i));
+            connect(action, &QAction::triggered, this, [this, i]() {
+                stop_check(&Station::to_same_st_period, ui->stop_choose->itemText(i));
+            });
+
+        }
+        ui->actionTo->setMenu(&to_menu);
+        to_menu.exec(mapToGlobal(pos()));
+    }
+}
+
+
+void MainWindow::on_actionPath_triggered()
+{
+    if(ui->stop_choose->count() > 0){
+        QMenu path_menu(this);
+        for (int i = 0; i < ui->stop_choose->count(); ++i) {
+            QAction* action = path_menu.addAction(ui->stop_choose->itemText(i));
+            connect(action, &QAction::triggered, this, [this, i]() {
+                stop_check(&Station::stops_same_st_period, ui->stop_choose->itemText(i));
+            });
+
+        }
+        ui->actionPath->setMenu(&path_menu);
+        path_menu.exec(mapToGlobal(pos()));
     }
 }
 
